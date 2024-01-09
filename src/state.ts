@@ -1,10 +1,8 @@
-type Result = {
-  title: string;
-};
+import { FormattedArtWork } from "./utils/globalTypes";
 
 export type initalStateType = {
   loading: boolean;
-  results: Result[];
+  results: FormattedArtWork[];
   error: {
     message?: string;
   };
@@ -13,6 +11,8 @@ export type initalStateType = {
 const initalState: initalStateType = {
   loading: true,
   results: [],
-  error: {}
+  error: {
+    message: ""
+  }
 };
 export default initalState;

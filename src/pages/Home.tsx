@@ -2,50 +2,29 @@ import { useState } from "react";
 import "../App.css";
 import useAPI from "../services/useAPI";
 import { BASE_URL } from "../utils/endpoint";
+import { FormattedArtWork, OriginalArtWork } from "../utils/globalTypes";
 
 import PlaceHolder from "../components/Placeholder/PlaceHolder";
+import PlaceHolderMessage from "../components/Placeholder/PlaceHolderMessage";
 import Card from "../components/Card/Card";
 import Search from "../components/Search/Search";
 
-type OriginalBook = {
-  author_name: string[];
-  author_key: string;
-  first_sentence: string[];
-  key: string;
-  first_publish_year: number;
-  ratings_average: number;
-  cover_i: number;
-};
-
-type FormattedBook = {
-  author_name: string;
-  author_key: string | undefined;
-  first_sentence: string;
-  key: string | undefined;
-  first_publish_year: number | undefined;
-  ratings: number | undefined;
-  cover_id: number;
-};
-
-const formatBooks = (books: OriginalBook[]): FormattedBook[] => {
-  const formattedBooks = books.map((book: OriginalBook) => {
+const formatBooks = (artworks: OriginalArtWork[]): FormattedArtWork[] => {
+  const formattedBooks = artworks.map((artwork: OriginalArtWork) => {
     return {
-      author_name: book.author_name?.[0] || "",
-      author_key: book.author_key,
-      first_sentence: book.first_sentence?.[0] || "",
-      key: book.key,
-      first_publish_year: book.first_publish_year,
-      ratings: book.ratings_average,
-      cover_id: book.cover_i
+      id: artwork.id,
+      title: artwork.title,
+      alt_text: artwork.thumbnail ? artwork.thumbnail.alt_text : " ",
+      thumbnail: ""
     };
   });
   return formattedBooks;
 };
 
 const Home = () => {
-  const [query, setQuery] = useState("culture");
+  const [query, setQuery] = useState("");
   const [pageCount, setPageCount] = useState(1);
-  const url = `${BASE_URL}/search.json?q=${query}&limit=10&page=${pageCount}`;
+  const url = `${BASE_URL}/api/v1/artworks/search?q=${query}&limit=10&page=${pageCount}`;
   const { state } = useAPI(url, formatBooks);
 
   const { loading, results, error } = state;
@@ -62,20 +41,37 @@ const Home = () => {
     setPageCount((prev) => prev + 1);
   };
 
-  //TODO: fix this
+  if (loading) {
+    return <PlaceHolder />;
+  }
+
   if (!results && error) return <p>error....</p>;
 
   return (
     <>
       <Search onSearch={handleSearch} />
-      {loading ? (
-        <PlaceHolder />
+
+      {results.length < 1 ? (
+        <PlaceHolderMessage
+          message={"Nothing found, Try with another keyword"}
+        />
       ) : (
         <>
           <section className="display-flex">
-            {results.map((book) => (
-              <Card content={book} key={book.key} />
-            ))}
+            {results.map((artwork: FormattedArtWork) => {
+              return (
+                <div key={artwork.id.toString()}>
+                  <Card
+                    content={{
+                      id: artwork.id,
+                      title: artwork.title,
+                      alt_text: artwork.alt_text,
+                      thumbnail: artwork.thumbnail
+                    }}
+                  />
+                </div>
+              );
+            })}
           </section>
           <div className="pagination">
             <button
