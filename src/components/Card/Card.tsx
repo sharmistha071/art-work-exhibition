@@ -1,7 +1,7 @@
 import "./Card.css";
 
 const Card = ({ content }) => {
-  console.log("item,", content);
+  console.log("content", content);
   return (
     <div className="card">
       <img
@@ -16,9 +16,7 @@ const Card = ({ content }) => {
       />
       <div className="container">
         <h2>{content.title}</h2>
-        <h4>
-          <b>{content.author_name}</b>
-        </h4>
+        <h4>{content.author_name}</h4>
         <p className="content">{content.first_sentence}</p>
       </div>
     </div>

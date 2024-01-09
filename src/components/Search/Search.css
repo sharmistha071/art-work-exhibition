@@ -1,0 +1,12 @@
+.search-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 25px;
+}
+.search-input {
+  width: 30%;
+  padding: 10px;
+}
+.search-button {
+  width: 120px;
+}

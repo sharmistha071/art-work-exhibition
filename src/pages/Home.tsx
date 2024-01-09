@@ -1,9 +1,11 @@
-import { useEffect } from "react";
+import { useState } from "react";
 import "../App.css";
 import useAPI from "../services/useAPI";
 import { BASE_URL } from "../utils/endpoint";
 
+import PlaceHolder from "../components/Placeholder/PlaceHolder";
 import Card from "../components/Card/Card";
+import Search from "../components/Search/Search";
 
 type OriginalBook = {
   author_name: string[];
@@ -41,24 +43,59 @@ const formatBooks = (books: OriginalBook[]): FormattedBook[] => {
 };
 
 const Home = () => {
-  const url = `${BASE_URL}/search.json?q=culture&limit=10&page=1`;
+  const [query, setQuery] = useState("culture");
+  const [pageCount, setPageCount] = useState(1);
+  const url = `${BASE_URL}/search.json?q=${query}&limit=10&page=${pageCount}`;
   const { state } = useAPI(url, formatBooks);
 
   const { loading, results, error } = state;
 
-  console.log("results", results);
+  const handleSearch = (q: string) => {
+    setQuery(q);
+  };
 
-  if (loading) return <p>Loading...</p>;
+  const prevClick = () => {
+    setPageCount((prev) => prev - 1);
+  };
+
+  const nextClick = () => {
+    setPageCount((prev) => prev + 1);
+  };
 
   //TODO: fix this
   if (!results && error) return <p>error....</p>;
 
   return (
-    <section className="display-flex">
-      {results.map((book) => (
-        <Card content={book} key={book.key} />
-      ))}
-    </section>
+    <>
+      <Search onSearch={handleSearch} />
+      {loading && <PlaceHolder />}
+      {results && (
+        <>
+          <section className="display-flex">
+            {results.map((book) => (
+              <Card content={book} key={book.key} />
+            ))}
+          </section>
+          <div className="pagination">
+            <button
+              type="button"
+              className="pagination-btn"
+              onClick={prevClick}
+              disabled={pageCount <= 1}
+            >
+              Prev
+            </button>
+            <button
+              type="button"
+              className="pagination-btn"
+              onClick={nextClick}
+            >
+              Next
+            </button>
+          </div>
+        </>
+      )}
+    </>
   );
 };
 
