@@ -17,7 +17,7 @@ const Search = ({ onSearch }: SearchProps) => {
       <input
         className="search-input"
         type="text"
-        placeholder="Search by name or author"
+        placeholder="Search by artist or artwork"
         value={query}
         onChange={(e) => setQuery(e.target.value)}
       />
