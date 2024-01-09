@@ -1,7 +1,11 @@
 import { useState } from "react";
 import "./Search.css";
 
-const Search = ({ onSearch }) => {
+type SearchProps = {
+  onSearch: (query: string) => void;
+};
+
+const Search = ({ onSearch }: SearchProps) => {
   const [query, setQuery] = useState("");
 
   const handleSearch = () => {

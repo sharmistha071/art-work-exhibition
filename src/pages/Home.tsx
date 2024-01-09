@@ -68,8 +68,9 @@ const Home = () => {
   return (
     <>
       <Search onSearch={handleSearch} />
-      {loading && <PlaceHolder />}
-      {results && (
+      {loading ? (
+        <PlaceHolder />
+      ) : (
         <>
           <section className="display-flex">
             {results.map((book) => (
