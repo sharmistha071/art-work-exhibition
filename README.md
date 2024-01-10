@@ -35,4 +35,4 @@ Access the deployed application https://sharmistha071.github.io/artworks/
    docker-compose -p artworks up
    ```
 
-Access the application http://localhost:8080/artworks
+Access the application http://localhost:8080/artworks/
