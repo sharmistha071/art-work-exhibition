@@ -4,8 +4,8 @@ type PlaceHolderMessageProps = {
 
 const PlaceHolderMessage = ({ message }: PlaceHolderMessageProps) => {
   return (
-    <section>
-      <h1>{message}</h1>
+    <section style={{ display: "flex", justifyContent: "center" }}>
+      <h6>{message}</h6>
     </section>
   );
 };

@@ -37,7 +37,7 @@ const Home = () => {
   if (!results && error) return <p>error....</p>;
 
   return (
-    <>
+    <div className="wrapper">
       <Search onSearch={handleSearch} />
 
       {results.length < 1 ? (
@@ -74,7 +74,7 @@ const Home = () => {
           </div>
         </>
       )}
-    </>
+    </div>
   );
 };
 
