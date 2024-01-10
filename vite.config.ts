@@ -12,5 +12,9 @@ export default defineConfig({
     environment: "jsdom",
     setupFiles: "./tests/setup.js"
   },
-  base: "/art-work-exhibition/"
+  base: "/art-work-exhibition/",
+  preview: {
+    host: true,
+    port: 8080
+  }
 });
