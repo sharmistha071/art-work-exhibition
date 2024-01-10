@@ -10,7 +10,7 @@ import PlaceHolderMessage from "./components/Placeholder/PlaceHolderMessage";
 
 export const router = createBrowserRouter([
   {
-    path: "/art-work-exhibition/",
+    path: "/artworks/",
     element: <App />,
     errorElement: (
       <PlaceHolderMessage
@@ -19,7 +19,7 @@ export const router = createBrowserRouter([
     )
   },
   {
-    path: "/art-work-exhibition/details/:id",
+    path: "/artworks/:id",
     element: <Details />
   }
 ]);

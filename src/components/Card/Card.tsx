@@ -9,7 +9,7 @@ type CardProps = {
 const Card = ({ content }: CardProps) => {
   return (
     <div className="card">
-      <Link to={`/art-work-exhibition/details/${content.id}`} relative="path">
+      <Link to={`/artworks/${content.id}`} relative="path">
         <img
           src={
             content.thumbnail

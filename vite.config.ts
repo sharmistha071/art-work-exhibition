@@ -12,7 +12,7 @@ export default defineConfig({
     environment: "jsdom",
     setupFiles: "./tests/setup.js"
   },
-  base: "/art-work-exhibition/",
+  base: "/artworks/",
   server: {
     host: true,
     port: 8080

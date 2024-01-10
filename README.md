@@ -51,7 +51,7 @@ To run the application using Docker, follow these steps:
    docker run -p 8080:80 art-work-exhibition
    ```
 
-Visit [http://localhost:8080/art-work-exhibition/](http://localhost:8080/art-work-exhibition/) in your browser to access the application.
+Visit [http://localhost:8080/art-wor/](http://localhost:8080/art-work-exhibition/) in your browser to access the application.
 
 ## Deployment
 

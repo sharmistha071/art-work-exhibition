@@ -27,7 +27,7 @@ const useDetails = ({ id }: useDetailsProps) => {
           image_id: data.data.image_id,
           title: data.data.title,
           gallery_title: data.data.gallery_title,
-          description: data.data.description,
+          description: data.data.short_description,
           category_titles: data.data.category_titles
         });
       } catch (error: unknown) {

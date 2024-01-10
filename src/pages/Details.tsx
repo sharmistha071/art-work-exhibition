@@ -17,7 +17,7 @@ const Details = () => {
       <div className="details-wrapper">
         <button
           onClick={() => {
-            navigate("/art-work-exhibition/");
+            navigate("/artworks");
           }}
           className="goBack"
         >
