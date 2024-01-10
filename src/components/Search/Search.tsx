@@ -15,6 +15,7 @@ const Search = ({ onSearch }: SearchProps) => {
   return (
     <div className="search-wrapper">
       <input
+        data-testid="search-wrapper"
         className="search-input"
         type="text"
         placeholder="Search by artist or artwork"
