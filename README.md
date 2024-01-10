@@ -4,8 +4,6 @@ Welcome to the Artwork Exhibition Application!
 
 https://sharmistha071.github.io/art-work-exhibition/
 
-
-
 ## Table of Contents
 
 1. [Project Overview](#project-overview)
@@ -45,15 +43,15 @@ To run the application using Docker, follow these steps:
 4. Build the Docker image:
 
    ```bash
-   docker build -t artwork-exhibition .
+   docker build -t art-work-exhibition .
    ```
 
 5. Run the Docker container:
    ```bash
-   docker run -p 8080:80 artwork-exhibition
+   docker run -p 8080:80 art-work-exhibition
    ```
 
-Visit [http://localhost:8080](http://localhost:8080/art-work-exhibition/) in your browser to access the application.
+Visit [http://localhost:8080/art-work-exhibition/](http://localhost:8080/art-work-exhibition/) in your browser to access the application.
 
 ## Deployment
 

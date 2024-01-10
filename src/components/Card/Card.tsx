@@ -14,7 +14,7 @@ const Card = ({ content }: CardProps) => {
           src={
             content.thumbnail
               ? `https://www.artic.edu/iiif/2/${content.thumbnail}/full/274,263/0/default.jpg`
-              : "https://dummyimage.com/180x190/dedede/3b3b3b&text=Image+Not+Available"
+              : "https://placehold.co/274x263/EEE/aaa"
           }
           alt="Avatar"
         />
