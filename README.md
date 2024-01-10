@@ -3,7 +3,7 @@
 This application provides a list of artworks with details.
 User can search by artwork or artist name.
 <br>
-Access the deployed application https://sharmistha071.github.io/art-work-exhibition/
+Access the deployed application https://sharmistha071.github.io/artworks/
 
 ## Installation
 
