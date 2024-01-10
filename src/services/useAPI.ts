@@ -36,7 +36,7 @@ type ActionTypes =
       };
     };
 
-const fetchReducer = (state: initalStateType, action: ActionTypes) => {
+export const fetchReducer = (state: initalStateType, action: ActionTypes) => {
   switch (action.type) {
     case _LOADING:
       return {
