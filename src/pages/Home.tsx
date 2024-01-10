@@ -1,5 +1,5 @@
-import { useState } from "react";
 import "../App.css";
+import { useState } from "react";
 import useAPI from "../services/useAPI";
 import { formatArtWorks } from "../services/functions";
 import { BASE_URL } from "../utils/endpoint";
