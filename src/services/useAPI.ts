@@ -1,5 +1,5 @@
 import { useReducer, useEffect } from "react";
-import initalState, { initalStateType } from "../state";
+import initalState, { initialStateType } from "../state";
 import { BASE_URL } from "../utils/endpoint";
 import { FormattedArtWork, OriginalArtWork } from "../utils/globalTypes";
 
@@ -36,7 +36,7 @@ type ActionTypes =
       };
     };
 
-export const fetchReducer = (state: initalStateType, action: ActionTypes) => {
+export const fetchReducer = (state: initialStateType, action: ActionTypes) => {
   switch (action.type) {
     case _LOADING:
       return {

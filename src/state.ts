@@ -1,6 +1,6 @@
 import { FormattedArtWork } from "./utils/globalTypes";
 
-export type initalStateType = {
+export type initialStateType = {
   loading: boolean;
   results: FormattedArtWork[];
   error: {
@@ -8,11 +8,11 @@ export type initalStateType = {
   };
 };
 
-const initalState: initalStateType = {
+const initialState: initialStateType = {
   loading: true,
   results: [],
   error: {
     message: ""
   }
 };
-export default initalState;
+export default initialState;

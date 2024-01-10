@@ -15,6 +15,7 @@ export default defineConfig({
   base: "/artworks/",
   server: {
     host: true,
+    strictPort: true,
     port: 8080
   },
   preview: {
