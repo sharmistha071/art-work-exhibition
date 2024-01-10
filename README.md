@@ -1,30 +1,56 @@
-# React + TypeScript + Vite
+# Artwork Exhibition
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Welcome to the Artwork Exhibition Application!
 
-Currently, two official plugins are available:
+## Table of Contents
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+1. [Project Overview](#project-overview)
+2. [Installation](#installation)
+   - [Docker Installation](#docker-installation)
+3. [Usage](#usage)
+4. [Deployment](#deployment)
+5. [Contributing](#contributing)
+6. [License](#license)
 
-## Expanding the ESLint configuration
+## Project Overview
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+This application allows users to explore and enjoy a virtual exhibition of artworks.
+User can search by artwork or artist name.
+User can see the details of an Artwork.
 
-- Configure the top-level `parserOptions` property like this:
+## Installation
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
+### Docker Installation
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+To run the application using Docker, follow these steps:
+
+1. Install Docker on your machine. You can download Docker from [https://www.docker.com/get-started](https://www.docker.com/get-started).
+
+2. Clone the repository:
+
+   ```bash
+   git clone https://github.com/sharmistha071/art-work-exhibition.git
+   ```
+
+3. Navigate to the project directory:
+
+   ```bash
+   cd art-work-exhibition
+   ```
+
+4. Build the Docker image:
+
+   ```bash
+   docker build -t artwork-exhibition .
+   ```
+
+5. Run the Docker container:
+   ```bash
+   docker run -p 8080:80 artwork-exhibition
+   ```
+
+Visit [http://localhost:8080](http://localhost:8080/art-work-exhibition/) in your browser to access the application.
+
+## Deployment
+
+Access the application through the deployed link(https://sharmistha071.github.io/art-work-exhibition/)
