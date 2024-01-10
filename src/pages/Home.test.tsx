@@ -1,6 +1,7 @@
 import "@testing-library/jest-dom";
 import { render, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
+import { MemoryRouter } from "react-router-dom";
 
 import Home from "./Home";
 
@@ -30,11 +31,19 @@ jest.mock("../services/useAPI", () => ({
 
 describe("Home", () => {
   it("renders Home component", () => {
-    render(<Home />);
+    render(
+      <MemoryRouter>
+        <Home />
+      </MemoryRouter>
+    );
   });
 
   it("renders the component with results", async () => {
-    render(<Home />);
+    render(
+      <MemoryRouter>
+        <Home />
+      </MemoryRouter>
+    );
 
     // waiting for the component to render
     await waitFor(() => {
@@ -44,7 +53,11 @@ describe("Home", () => {
     });
   });
   it("handle search properly", () => {
-    render(<Home />);
+    render(
+      <MemoryRouter>
+        <Home />
+      </MemoryRouter>
+    );
 
     const searchInput = screen.getByTestId("search-wrapper");
     userEvent.type(searchInput, "starry night");

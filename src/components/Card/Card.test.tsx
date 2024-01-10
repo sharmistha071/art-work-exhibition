@@ -1,5 +1,7 @@
 import "@testing-library/jest-dom";
 import { render, screen } from "@testing-library/react";
+import { MemoryRouter } from "react-router-dom";
+
 import Card from "./Card";
 
 const mockArtwork = {
@@ -11,7 +13,11 @@ const mockArtwork = {
 
 describe("Card", () => {
   it("renders Card component with provided content", () => {
-    render(<Card content={mockArtwork} />);
+    render(
+      <MemoryRouter>
+        <Card content={mockArtwork} />
+      </MemoryRouter>
+    );
 
     const titleElement = screen.getByText("Test Artwork");
     const altTextElement = screen.getByText("Test Alt Text");
@@ -32,7 +38,11 @@ describe("Card", () => {
       thumbnail: undefined
     };
 
-    render(<Card content={mockArtworkWithoutThumbnail} />);
+    render(
+      <MemoryRouter>
+        <Card content={mockArtworkWithoutThumbnail} />
+      </MemoryRouter>
+    );
 
     const imageElement = screen.getByAltText("Avatar");
 
