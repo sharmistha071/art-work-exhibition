@@ -1,32 +1,21 @@
 import { useState } from "react";
 import "../App.css";
 import useAPI from "../services/useAPI";
+import { formatArtWorks } from "../services/functions";
 import { BASE_URL } from "../utils/endpoint";
-import { FormattedArtWork, OriginalArtWork } from "../utils/globalTypes";
+import { FormattedArtWork } from "../utils/globalTypes";
 
 import PlaceHolder from "../components/Placeholder/PlaceHolder";
 import PlaceHolderMessage from "../components/Placeholder/PlaceHolderMessage";
 import Card from "../components/Card/Card";
 import Search from "../components/Search/Search";
 
-const formatBooks = (artworks: OriginalArtWork[]): FormattedArtWork[] => {
-  const formattedBooks = artworks.map((artwork: OriginalArtWork) => {
-    return {
-      id: artwork.id,
-      title: artwork.title,
-      alt_text: artwork.thumbnail ? artwork.thumbnail.alt_text : " ",
-      thumbnail: ""
-    };
-  });
-  return formattedBooks;
-};
-
 const Home = () => {
   const [query, setQuery] = useState("");
   const [pageCount, setPageCount] = useState(1);
-  const url = `${BASE_URL}/api/v1/artworks/search?q=${query}&limit=10&page=${pageCount}`;
-  const { state } = useAPI(url, formatBooks);
 
+  const url = `${BASE_URL}/api/v1/artworks/search?q=${query}&limit=10&page=${pageCount}`;
+  const { state } = useAPI(url, formatArtWorks);
   const { loading, results, error } = state;
 
   const handleSearch = (q: string) => {
@@ -61,14 +50,7 @@ const Home = () => {
             {results.map((artwork: FormattedArtWork) => {
               return (
                 <div key={artwork.id.toString()}>
-                  <Card
-                    content={{
-                      id: artwork.id,
-                      title: artwork.title,
-                      alt_text: artwork.alt_text,
-                      thumbnail: artwork.thumbnail
-                    }}
-                  />
+                  <Card content={artwork} />
                 </div>
               );
             })}
