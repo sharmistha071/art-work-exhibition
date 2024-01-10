@@ -48,7 +48,7 @@ describe("Card", () => {
 
     expect(imageElement).toHaveAttribute(
       "src",
-      "https://dummyimage.com/180x190/dedede/3b3b3b&text=Image+Not+Available"
+      "https://placehold.co/274x263/EEE/aaa"
     );
   });
 });
